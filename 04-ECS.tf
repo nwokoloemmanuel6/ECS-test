@@ -70,7 +70,7 @@ resource "aws_ecs_task_definition" "aws-ecs-task" {
       "cpu": 256,
       "memory": 512,
       "networkMode": "awsvpc"
-    }
+    },
 
     {
       "name": "${var.app_name}-${var.app_environment}-backend-container",
