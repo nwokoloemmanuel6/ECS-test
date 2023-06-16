@@ -74,7 +74,7 @@ resource "aws_lb_target_group" "target_group" {
 #LISTENERS
 
 resource "aws_lb_listener" "listener" {
-  load_balancer_arn = aws_alb.application_load_balancer.id
+  load_balancer_arn = aws_lb.application_load_balancer.id
   port              = "80"
   protocol          = "HTTP"
 
