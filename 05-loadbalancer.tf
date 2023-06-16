@@ -1,4 +1,4 @@
-resource "aws_alb" "application_load_balancer" {
+resource "aws_lb" "application_load_balancer" {
   name               = "${var.app_name}-${var.app_environment}-alb"
   internal           = false
   load_balancer_type = "application"
