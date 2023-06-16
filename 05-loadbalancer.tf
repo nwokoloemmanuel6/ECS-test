@@ -21,7 +21,6 @@ resource "aws_security_group" "load_balancer_security_group" {
     to_port          = 80
     protocol         = "tcp"
     cidr_blocks      = ["0.0.0.0/0"]
-    ipv6_cidr_blocks = ["::/0"]
   }
 
     ingress {
@@ -29,7 +28,6 @@ resource "aws_security_group" "load_balancer_security_group" {
     to_port          = 5000
     protocol         = "tcp"
     cidr_blocks      = ["0.0.0.0/0"]
-    ipv6_cidr_blocks = ["::/0"]
   }
 
   egress {
@@ -37,7 +35,6 @@ resource "aws_security_group" "load_balancer_security_group" {
     to_port          = 0
     protocol         = "-1"
     cidr_blocks      = ["0.0.0.0/0"]
-    ipv6_cidr_blocks = ["::/0"]
   }
   tags = {
     Name        = "${var.app_name}-sg"
@@ -57,7 +54,7 @@ resource "aws_lb_target_group" "target_group" {
 
   health_check {
     healthy_threshold   = "3"
-    interval            = "300"
+    interval            = "100"
     protocol            = "HTTP"
     matcher             = "200"
     timeout             = "3"
