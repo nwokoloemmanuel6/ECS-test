@@ -50,7 +50,7 @@ resource "aws_ecs_task_definition" "aws-ecs-task" {
   [
     {
       "name": "${var.app_name}-${var.app_environment}-frontend-container",
-      "image": "${data.aws_ecr_repository.frontend.repository_url}:latest",
+      "image": "public.ecr.aws/m7q7a4s1/project-frontend:latest",
       "entryPoint": [],
       "essential": true,
       "logConfiguration": {
@@ -74,7 +74,7 @@ resource "aws_ecs_task_definition" "aws-ecs-task" {
 
     {
       "name": "${var.app_name}-${var.app_environment}-backend-container",
-      "image": "${data.aws_ecr_repository.backend.repository_url}:latest",
+      "image": "public.ecr.aws/m7q7a4s1/project-backend:latest",
       "entryPoint": [],   
       "essential": true,
       "logConfiguration": {
