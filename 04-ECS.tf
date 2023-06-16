@@ -34,10 +34,10 @@ resource "aws_cloudwatch_log_group" "log-group" {
     Environment = var.app_environment
   }
 }
-
+/* 
 data "template_file" "env_vars" {
   template = file("env_vars.json")
-}
+} */
 
 
 
@@ -52,7 +52,7 @@ resource "aws_ecs_task_definition" "aws-ecs-task" {
       "name": "${var.app_name}-${var.app_environment}-frontend-container",
       "image": "${aws_ecr_repository.frontend.repository_url}:latest",
       "entryPoint": [],
-      "environment": ${data.template_file.env_vars.rendered},
+      /* "environment": ${data.template_file.env_vars.rendered}, */
       "essential": true,
       "logConfiguration": {
         "logDriver": "awslogs",
@@ -77,7 +77,7 @@ resource "aws_ecs_task_definition" "aws-ecs-task" {
       "name": "${var.app_name}-${var.app_environment}-backend-container",
       "image": "${aws_ecr_repository.backend.repository_url}:latest",
       "entryPoint": [],
-      "environment": ${data.template_file.env_vars.rendered},
+      /* "environment": ${data.template_file.env_vars.rendered}, */
       "essential": true,
       "logConfiguration": {
         "logDriver": "awslogs",
