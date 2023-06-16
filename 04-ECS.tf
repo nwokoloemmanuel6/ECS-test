@@ -141,7 +141,7 @@ resource "aws_ecs_service" "aws-ecs-service" {
   force_new_deployment = true
 
   network_configuration {
-    subnets          = aws_subnet.public.*.id
+    subnets          = aws_subnet.private.*.id
     assign_public_ip = false
     security_groups = [aws_security_group.service_security_group.id]
   }
