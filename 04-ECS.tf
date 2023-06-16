@@ -155,7 +155,7 @@ resource "aws_ecs_service" "aws-ecs-service" {
     container_port   = 80
   }
 
-  depends_on = [aws_lb_listener.listener]
+  depends_on = [aws_lb_listener.listener, aws_lb_target_group.target_group]
 }
 
 
