@@ -151,7 +151,7 @@ resource "aws_ecs_service" "aws-ecs-service" {
 
   load_balancer {
     target_group_arn = aws_lb_target_group.target_group.arn
-    container_name   = "${var.app_name}-${var.app_environment}-container"
+    container_name   = "${var.app_name}-${var.app_environment}-frontend-container"
     container_port   = 80
   }
 
